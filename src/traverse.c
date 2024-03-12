@@ -6,51 +6,47 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 17:36:12 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/12 21:25:33 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
-static void _print(t_node *node)
+static void	_print(t_node *node)
 {
-  printf("%d\n", node->m_val);
+	printf("%d\n", node->m_val);
 }
 
-static void _clear(t_node * const node) 
+static void	_clear(t_node *const node)
 {
-  free(node);
+	free(node);
 }
 
-void traverse(fptr f, t_node *head)
+void	traverse(fptr f, t_node *head)
 {
-  t_node *breakpoint = head;
-  t_node *tmp;
-  do 
-  {
-    tmp = head->m_next;
-    f(head);
-    head = tmp;
-  }
-  while (head != breakpoint);
-  
+	t_node	*breakpoint;
+	t_node	*tmp;
+
+	breakpoint = head;
+	do
+	{
+		tmp = head->m_next;
+		f(head);
+		head = tmp;
+	} while (head != breakpoint);
 }
 
-void print(t_stack *stack)
+void	print(t_stack *stack)
 {
-  traverse(_print, stack->m_head);
+	traverse(_print, stack->m_head);
 }
 
-void clear(t_stack *stack)
+void	clear(t_stack *stack)
 {
-  traverse(_clear, stack->m_head);
+	traverse(_clear, stack->m_head);
 }
 
-int empty(t_stack* stack)
+int	empty(t_stack *stack)
 {
-  return (stack->m_head == NULL);
+	return (stack->m_head == NULL);
 }
-
-
-

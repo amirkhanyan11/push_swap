@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 // #define MAIN
- #define DEBUG
+#define DEBUG
 
 typedef struct s_node
 {
