@@ -8,20 +8,22 @@ INCPATH = ./includes/ ./libft/
 SRCS = $(wildcard $(SRCSPATH)*.c)
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 LIBFT = $(LIBFTPATH)libft.a
+MAIN = ./main/main.c
+
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror $(foreach H,$(INCPATH),-I$(H))
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT)# $(OBJS)
-	$(CC) $(CFLAGS) $(LIBFT) -o $@ #$(OBJS) -o $@
+$(NAME) : $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(MAIN) $(LIBFT) $(OBJS) -o $@
 
 $(LIBFT) :
 	make -C $(LIBFTPATH) all
 
-%.o : %.c
-	$(CC) $(CFLAGS)-c $< -o $@
+$(SRCSPATH)%.o : $(SRCSPATH)%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 	make -C $(LIBFTPATH) clean
