@@ -6,12 +6,11 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 18:00:47 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 19:02:48 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:34:41 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <limits.h>
 #include <stdio.h>
 
 static size_t	_atoi_helper(char const *const str, int i, int res)
@@ -41,7 +40,7 @@ static size_t	_atoi(char const *const str)
 			sign = -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]))
+	while (ft_isdigit(str[i]) || ft_isalpha(str[i]))
 	{
 		res = (10 * res) + (str[i] - '0');
 		if (res * sign > INT_MAX || res * sign < INT_MIN)
@@ -84,17 +83,5 @@ void	free_mat(char **mat)
 		i++;
 	}
 	free(mat);
-}
-
-static int	_ac_count(char **mat)
-{
-	int	count;
-
-	count = 0;
-	while (mat[count])
-	{
-		count++;
-	}
-	return (count);
 }
 

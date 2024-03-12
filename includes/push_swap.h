@@ -40,6 +40,7 @@ typedef void	(*fptr)(t_node *);
 // stack methods
 t_stack	*stack_init(void);
 t_node	*node_init(int const val);
+t_stack *a_init(int ac, char **av);
 t_node *find(int const val, t_stack *stack);
 void	push(int const val, t_stack * const obj);
 void traverse(fptr f, t_node *head);
@@ -58,7 +59,6 @@ void rr(t_stack * const a, t_stack *const b);
 void rrr(t_stack * const a, t_stack *const b);
 
 // error handling
-t_stack *a_init(int ac, char **av);
 int alloc_nums(int ac, char **av, t_stack *stack);
 void free_mat(char **mat);
 
