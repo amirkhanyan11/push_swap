@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror $(foreach H,$(INCPATH),-I$(H)) # $(DEBUG)
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(MAIN) $(LIBFT) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(MAIN) $(OBJS) $(LIBFT) -o $@
 
 $(LIBFT) :
 	make -C $(LIBFTPATH) all
