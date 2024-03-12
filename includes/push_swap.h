@@ -9,7 +9,7 @@
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
-
+#include <stdint.h>
 #include <stdio.h>
 
 // #define MAIN
@@ -59,8 +59,6 @@ void rrr(t_stack * const a, t_stack *const b);
 
 // error handling
 t_stack *a_init(int ac, char **av);
-size_t _atoi(char const * const str);
-void free_mat(char **mat);
 int alloc_nums(int ac, char **av, t_stack *stack);
 void free_mat(char **mat);
 

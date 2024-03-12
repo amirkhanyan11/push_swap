@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:15:16 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 17:15:47 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:13:01 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,41 @@ t_node	*node_init(int const val)
   node->m_prev = NULL;
 	return (node);
 }
+
+static int	_ac_count(char **mat)
+{
+	int	count;
+
+	count = 0;
+	while (mat[count])
+	{
+		count++;
+	}
+	return (count);
+}
+
+t_stack	*a_init(int ac, char **av)
+{
+	char	**mat;
+	t_stack	*stack;
+
+	stack = stack_init();
+	mat = NULL;
+	if (ac == 2)
+	{
+		mat = ft_split(av[1], ' ');
+		if (alloc_nums(_ac_count(mat), mat, stack) == -1)
+		{
+			free_mat(mat);
+			return (NULL);
+		}
+	}
+	else if (ac < 2 || alloc_nums(ac - 1, av + 1, stack) == -1)
+	{
+		return (NULL);
+	}
+	free_mat(mat);
+	return (stack);
+}
+
 

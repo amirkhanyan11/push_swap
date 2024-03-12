@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   find.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 19:22:16 by aamirkha         ###   ########.fr       */
+/*   Created: 2024/03/12 19:18:04 by aamirkha          #+#    #+#             */
+/*   Updated: 2024/03/12 19:20:01 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdlib.h>
 
-#ifndef MAIN
-
-int	main(int ac, char **av)
+t_node	*find(int const val, t_stack *stack)
 {
-	t_stack	*a;
+	t_node	*l;
+	t_node	*f;
 
-	a = a_init(ac, av);
-
-  if (NULL == a)
+	if (empty(stack))
+		return (NULL);
+	l = stack->m_head;
+	f = l;
+	do
 	{
-		printf("invalid input aper\n");
-		return (-1);
-  }
-	
-  print(a);
-	clear(a);
-
-# ifdef DEBUG
-	system("leaks push_swap");
-# endif // DEBUG
+		if (f->m_val == val)
+		{
+			return (f);
+		}
+		f = f->m_next;
+	} while (f != l);
+	return (NULL);
 }
 
-#endif // MAIN
