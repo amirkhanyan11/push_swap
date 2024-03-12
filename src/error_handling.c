@@ -6,11 +6,12 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 18:00:47 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 20:17:15 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/12 21:22:11 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <limits.h>
 #include <stdio.h>
 
 static size_t _atoi_helper(char const * const str, int i, int res)
@@ -26,7 +27,7 @@ static size_t _atoi_helper(char const * const str, int i, int res)
 size_t _atoi(char const * const str)
 {
   int i;
-  int res;
+  long long res;
   int sign;
 
   sign = 1;
@@ -42,9 +43,9 @@ size_t _atoi(char const * const str)
   }
   while(ft_isdigit(str[i]))
   {
-    if (res < INT_MIN || res > INT_MAX)
-        return (invalid_input);
     res = (10 * res) + (str[i] - '0');
+    if (res * sign > INT_MAX || res * sign < INT_MIN)
+        return (invalid_input);
     i++;
   }
   return (_atoi_helper(str, i, res * sign));
@@ -52,16 +53,14 @@ size_t _atoi(char const * const str)
 
 int alloc_nums(int ac, char **av, t_stack *stack)
 {
-  char **mat;
   size_t current;
   int i;
 
-  mat = NULL;
   i = 0;
   while (i < ac)
   {
     current = _atoi(av[ac - 1 - i]);
-    if (invalid_input == current)
+    if (invalid_input == current || ((invalid_input != current) && find(current, stack)))
         return (-1);
     push((int const)current, stack);
     i++;
@@ -72,6 +71,10 @@ int alloc_nums(int ac, char **av, t_stack *stack)
 void free_mat(char **mat)
 {
   int i = 0;
+  if (NULL == mat)
+  {
+    return;
+  }
   while (mat[i])
   {
     free(mat[i]);
@@ -113,7 +116,7 @@ t_stack *a_init(int ac, char **av)
   {
     return NULL;
   }
-  free(mat);
+  free_mat(mat);
   return (stack);
 }
 

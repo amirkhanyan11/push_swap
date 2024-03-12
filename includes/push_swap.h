@@ -13,6 +13,7 @@
 #include <stdio.h>
 
 // #define MAIN
+ #define DEBUG
 
 typedef struct s_node
 {
@@ -39,6 +40,7 @@ typedef void	(*fptr)(t_node *);
 // stack methods
 t_stack	*stack_init(void);
 t_node	*node_init(int const val);
+t_node *find(int const val, t_stack *stack);
 void	push(int const val, t_stack * const obj);
 void traverse(fptr f, t_node *head);
 void print(t_stack * stack); 

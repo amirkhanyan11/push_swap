@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 20:17:12 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/12 21:23:12 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,26 @@ void swap(t_stack * const stack)
   stack->m_head = to_swap;
 
   stack->m_tail->m_next = stack->m_head;
+}
+
+
+t_node *find(int const val, t_stack *stack)
+{
+  if (empty(stack))
+    return (NULL);
+  t_node *l = stack->m_head;
+  t_node *f = l;
+  
+  do 
+  {
+    if (f->m_val == val)
+    {
+      return (f);
+    }
+    f = f->m_next;
+  }
+  while(f != l);
+  return (NULL);
 }
 
 void pop(t_stack * const stack)
@@ -102,12 +122,20 @@ int main(int ac, char **av)
 
   a = a_init(ac, av);
   if (NULL == a)
+  {
+    printf("invalid input aper\n");
     return (-1);
-
+  }
 
   print(a);
   clear(a);
+
+
+#ifdef DEBUG
+  system("leaks push_swap");
+#endif // DEBUG
 }
+
 
 #endif // MAIN
 
