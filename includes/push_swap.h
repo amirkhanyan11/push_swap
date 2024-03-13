@@ -59,6 +59,8 @@ int pop(t_stack * const stack);
 void push_a_b(t_stack * const a, t_stack * const b);
 void rotate(t_stack * const stack);
 void rrotate(t_stack * const stack);
+void destroy(t_stack **stack);
+
 
 // debil functions
 void ss(t_stack * const a, t_stack *const b);
