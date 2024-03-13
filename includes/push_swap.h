@@ -70,13 +70,9 @@ int alloc_nums(int ac, char **av, t_stack *stack);
 void free_mat(char **mat);
 
 
-
-
-
-
-
-
-
+// sorting functions
+int sorted(t_stack* stack);
+int check_sorted(t_stack * const stack);
 
 
 

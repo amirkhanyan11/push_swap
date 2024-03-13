@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/13 18:44:36 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/13 23:17:51 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ int	main(int ac, char **av)
 		return (-1);
   }
 
+
   sort_stacks(a, b);
   print(a);
-	clear(a);
+
+  destroy(&a);
+  destroy(&b);
 
 # ifdef DEBUG
   

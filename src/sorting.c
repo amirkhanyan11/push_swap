@@ -6,25 +6,25 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/13 21:56:08 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/13 23:14:06 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int _sorted(t_node *node)
+int _sorted(t_node *node)
 {
-  return (node->m_val > node->m_prev->m_val);
+  return (node->m_val > node->m_next->m_val);
 }
 
 int sorted(t_stack* stack)
 {
   if (NULL == stack->m_head)
       return 1;
-  return (traverse_unary_predicate(_sorted, stack->m_head->m_next));
+  return (traverse_unary_predicate(_sorted, stack->m_head));
 }
 
-static t_node *_smallest(t_node *f, t_node *l)
+t_node *_smallest(t_node *f, t_node *l)
 {
   if (f->m_val < l->m_val)
       return f;
@@ -39,11 +39,11 @@ static t_node *smallest(t_stack * const stack)
   return (traverse_binary_predicate(_smallest, stack->m_head));
 }
 
-static int check_sorted(t_stack * const stack)
+int check_sorted(t_stack * const stack)
 {
   t_node *pivot = smallest(stack);
 
-  if (traverse_unary_predicate(_sorted, pivot->m_next))
+  if (traverse_unary_predicate(_sorted, pivot))
   {
     while (stack->m_head != pivot)
     {
@@ -62,8 +62,10 @@ void sort_stacks(t_stack * const a, t_stack * const b)
 
   while (!empty(a))
   {
-    if (check_sorted(stack))
-      return;
+    if (check_sorted(a) && empty(b))
+    {
+      break;
+    }
     printf("count : %d\n", count++);
     tmp = pop(a);
     while (!empty(b) && peak(b) > tmp)
@@ -78,6 +80,7 @@ void sort_stacks(t_stack * const a, t_stack * const b)
     printf("count : %d\n", count++);
     push(pop(b), a);
   }
+  clear(b);
 }
 
 

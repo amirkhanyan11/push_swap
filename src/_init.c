@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:15:16 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 19:13:01 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/13 23:16:49 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ t_node	*node_init(int const val)
   node->m_next = NULL;
   node->m_prev = NULL;
 	return (node);
+}
+
+
+void destroy(t_stack **stack)
+{
+  clear(*stack);
+  free(*stack);
+  *stack = NULL;
 }
 
 static int	_ac_count(char **mat)

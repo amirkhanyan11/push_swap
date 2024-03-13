@@ -13,7 +13,7 @@ MAIN = ./main/main.c
 
 CC = cc
 DEBUG = -fsanitize=address
-CFLAGS = -Wall -Wextra -Werror $(foreach H,$(INCPATH),-I$(H))  $(DEBUG)
+CFLAGS = $(foreach H,$(INCPATH),-I$(H))  $(DEBUG)
 
 all : $(NAME)
 
