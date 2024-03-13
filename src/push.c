@@ -6,10 +6,9 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:15:40 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 19:29:47 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:37:37 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../includes/push_swap.h"
 
 void	push(int const val, t_stack *const obj)
@@ -32,8 +31,7 @@ void	push_a_b(t_stack *const lhv, t_stack *const rhv)
 {
 	int	val;
 
-	val = lhv->m_head->m_val;
-	pop(lhv);
+	val = pop(lhv);
 	push(val, rhv);
 }
 

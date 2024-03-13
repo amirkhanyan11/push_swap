@@ -36,6 +36,9 @@ typedef enum e_input
 } t_input;
 
 typedef void	(*fptr)(t_node *);
+typedef int(*unary_predicate)(t_node *);
+typedef t_node*(*cmp)(t_node *, t_node *);
+
 
 // stack methods
 void sort_stacks(t_stack * const a, t_stack * const b);
@@ -44,13 +47,15 @@ t_node	*node_init(int const val);
 t_stack *a_init(int ac, char **av);
 t_node *find(int const val, t_stack *stack);
 int peak(t_stack * const stack);
-void	push(int const val, t_stack * const obj);
+void	push(int const val, t_stack * const stack);
 void traverse(fptr f, t_node *head);
+int traverse_unary_predicate(unary_predicate f, t_node *head);
+t_node  *traverse_binary_predicate(cmp f, t_node *head);
 void print(t_stack * stack); 
 void clear(t_stack * stack);
 int empty(t_stack * const stack);
 void swap(t_stack * const stack);
-long long pop(t_stack * const stack);
+int pop(t_stack * const stack);
 void push_a_b(t_stack * const a, t_stack * const b);
 void rotate(t_stack * const stack);
 void rrotate(t_stack * const stack);
