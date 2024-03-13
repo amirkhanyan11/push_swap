@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/13 20:33:03 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/13 21:56:08 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,21 @@ static t_node *smallest(t_stack * const stack)
   return (traverse_binary_predicate(_smallest, stack->m_head));
 }
 
+static int check_sorted(t_stack * const stack)
+{
+  t_node *pivot = smallest(stack);
+
+  if (traverse_unary_predicate(_sorted, pivot->m_next))
+  {
+    while (stack->m_head != pivot)
+    {
+      rotate(stack);
+    }
+    return 1;
+  }
+  return 0;
+}
+
 int count = 1;
 
 void sort_stacks(t_stack * const a, t_stack * const b)
@@ -47,6 +62,8 @@ void sort_stacks(t_stack * const a, t_stack * const b)
 
   while (!empty(a))
   {
+    if (check_sorted(stack))
+      return;
     printf("count : %d\n", count++);
     tmp = pop(a);
     while (!empty(b) && peak(b) > tmp)

@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 18:00:47 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 19:34:41 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:46:11 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static size_t	_atoi(char const *const str)
 			sign = -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]) || ft_isalpha(str[i]))
+	while (ft_isdigit(str[i]))
 	{
 		res = (10 * res) + (str[i] - '0');
 		if (res * sign > INT_MAX || res * sign < INT_MIN)
