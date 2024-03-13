@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 // #define MAIN
-// #define DEBUG
+/* #define DEBUG */
 
 typedef struct s_node
 {
@@ -32,23 +32,25 @@ typedef struct s_stack
 
 typedef enum e_input
 {
-  invalid_input = SIZE_MAX
+  invalid_input = 2147483650
 } t_input;
 
 typedef void	(*fptr)(t_node *);
 
 // stack methods
+void sort_stacks(t_stack * const a, t_stack * const b);
 t_stack	*stack_init(void);
 t_node	*node_init(int const val);
 t_stack *a_init(int ac, char **av);
 t_node *find(int const val, t_stack *stack);
+int peak(t_stack * const stack);
 void	push(int const val, t_stack * const obj);
 void traverse(fptr f, t_node *head);
 void print(t_stack * stack); 
 void clear(t_stack * stack);
 int empty(t_stack * const stack);
 void swap(t_stack * const stack);
-void pop(t_stack * const stack);
+long long pop(t_stack * const stack);
 void push_a_b(t_stack * const a, t_stack * const b);
 void rotate(t_stack * const stack);
 void rrotate(t_stack * const stack);
