@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:15:16 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 18:37:01 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:49:01 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,13 @@ t_stack	*a_init(int ac, char **av)
 		if (alloc_nums(_ac_count(mat), mat, stack) == -1)
 		{
 			free_mat(mat);
+      destroy(&stack);
 			return (NULL);
 		}
 	}
 	else if (ac < 2 || alloc_nums(ac - 1, av + 1, stack) == -1)
 	{
+    destroy(&stack);
 		return (NULL);
 	}
 	free_mat(mat);
