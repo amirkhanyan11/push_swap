@@ -24,7 +24,7 @@ int pop(t_stack *const stack)
   
   val = stack->m_head->m_val;
 
-  if (stack->m_head == stack->m_tail)
+  if (stack->m_head == stack->m_head->m_next)
   {
     clear(stack);
   }
@@ -32,10 +32,10 @@ int pop(t_stack *const stack)
   else 
   {
     next = stack->m_head->m_next;
-    stack->m_tail->m_next = next;
-    next->m_prev = stack->m_tail;
+    stack->m_head->m_prev->m_next = next;
+    next->m_prev = stack->m_head->m_prev;
     free(stack->m_head);
-    stack->m_head = next;    
+    stack->m_head = next;
   }
 
   return (val);

@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 20:39:31 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:37:11 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,6 @@ void	clear(t_stack *stack)
 {
 	traverse(_clear, stack->m_head);
   stack->m_head = NULL;
-  stack->m_tail = NULL;
 }
 
 int	empty(t_stack *stack)

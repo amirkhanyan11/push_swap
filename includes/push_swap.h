@@ -26,8 +26,6 @@ typedef struct s_node
 typedef struct s_stack
 {
 	t_node		*m_head;
-	t_node		*m_tail;
-
 }				t_stack;
 
 typedef enum e_input

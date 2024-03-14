@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:15:16 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 20:39:30 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:37:01 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_stack	*stack_init(void)
 
 	stack = malloc(sizeof(t_stack));
 	stack->m_head = NULL;
-  stack->m_tail = NULL;
 	return (stack);
 }
 
