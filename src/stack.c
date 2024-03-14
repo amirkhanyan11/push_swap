@@ -6,11 +6,12 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 18:49:13 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:54:54 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 #ifndef MAIN
@@ -30,7 +31,11 @@ int	main(int ac, char **av)
 
 
   sort_stacks(a, b);
-  // print(a);
+
+  if (sorted(a))
+      printf("Success!!\n");
+  else 
+    printf("Not sorted!\n");
 
   destroy(&a);
   destroy(&b);

@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 18:37:11 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:27:15 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,28 @@ t_node* traverse_binary_predicate(cmp f, t_node *head)
   return pivot;
 }
 
-int traverse_unary_predicate(unary_predicate f, t_node *head)
+int traverse_unary_predicate(unary_predicate f, t_stack * const stack, t_node *start)
 {
   t_node	*breakpoint;
 	t_node	*tmp;
-  
-  if (NULL == head)
+  int flag = 1;
+
+  if (NULL == start)
       return 1;
-	breakpoint = head;
+	breakpoint = start;
 	do
 	{
-		tmp = head->m_next;
-		if (f(head))
-      return 0;
-		head = tmp;
-	} while (head->m_next != breakpoint);
+		tmp = start->m_next;
+		if (f(start))
+    {
+      organize_rotate(stack, start);
+      swap(stack);
+      return 0;// ???
+    }
+		start = tmp;
+	} while (start->m_next != breakpoint);
 
-  return 1;
+  return flag;
 }
 
 void	print(t_stack *stack)

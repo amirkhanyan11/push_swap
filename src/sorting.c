@@ -10,7 +10,7 @@ int sorted(t_stack* stack)
 {
   if (NULL == stack->m_head)
       return 1;
-  return (traverse_unary_predicate(_sorted, stack->m_head));
+  return (traverse_unary_predicate(_sorted, stack, stack->m_head));
 }
 
 t_node *_smallest(t_node *f, t_node *l)
@@ -45,8 +45,9 @@ static int closest(t_stack *stack, t_node *pivot)
   return 0;
 }
 
-static void organize_rotate(void (*fptr)(t_stack * const), t_stack * const stack, t_node* end)
+void organize_rotate(t_stack * const stack, t_node* end)
 {
+  void (*fptr) (t_stack * const) = (closest(stack, end)) ? rotate : rrotate;
   while (stack->m_head != end)
   {
     fptr(stack);
@@ -57,11 +58,9 @@ int check_sorted(t_stack * const stack)
 {
   t_node *pivot = smallest(stack);
 
-  if (traverse_unary_predicate(_sorted, pivot))
+  if (traverse_unary_predicate(_sorted, stack, pivot))
   {
-    void (*fptr) (t_stack * const) = (closest(stack, pivot)) ? rotate : rrotate;
-
-    organize_rotate(fptr, stack, pivot);
+    organize_rotate(stack, pivot);
     return 1;
   }
   return 0;

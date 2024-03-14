@@ -47,7 +47,7 @@ t_node *find(int const val, t_stack *stack);
 int peak(t_stack * const stack);
 void	push(int const val, t_stack * const stack);
 void traverse(fptr f, t_node *head);
-int traverse_unary_predicate(unary_predicate f, t_node *head);
+int traverse_unary_predicate(unary_predicate f, t_stack * const stack, t_node *start);
 t_node  *traverse_binary_predicate(cmp f, t_node *head);
 void print(t_stack * stack); 
 void clear(t_stack * stack);
@@ -74,6 +74,8 @@ void free_mat(char **mat);
 int sorted(t_stack* stack);
 int check_sorted(t_stack * const stack);
 void print_parallel(t_stack *a, t_stack*b);
+void organize_rotate(t_stack * const stack, t_node* end);
+t_node *_smallest(t_node *f, t_node *l);
 
 
 
