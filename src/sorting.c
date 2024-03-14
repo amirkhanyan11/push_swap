@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 16:34:43 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:11:42 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,45 @@ static t_node *smallest(t_stack * const stack)
   return (traverse_binary_predicate(_smallest, stack->m_head));
 }
 
+int count = 1;
+
+static t_node *closest(t_stack *stack, t_node *pivot)
+{
+  t_node *t_head = stack->m_head;
+  t_node *t_tail = stack->m_tail;
+
+  while (t_head != pivot && t_tail != pivot)
+  {
+    t_head = t_head->m_next;
+    t_tail = t_tail->m_prev;
+  }
+  if (t_head == pivot)
+      return stack->m_head;
+  return stack->m_tail;
+}
+
+
+static void organize_rotate(void(*f)(t_stack *const), t_stack * const stack, t_node * start, t_node const * const pivot)
+{
+  while (start != pivot)
+    f(stack);
+}
+
 int check_sorted(t_stack * const stack)
 {
   t_node *pivot = smallest(stack);
 
   if (traverse_unary_predicate(_sorted, pivot))
   {
-    while (stack->m_head != pivot)
-    {
-      rotate(stack);
-    }
+    if (closest(stack, pivot) == stack->m_head)
+      organize_rotate(rotate, stack, stack->m_head, pivot);      
+    else 
+      organize_rotate(rrotate, stack, stack->m_tail, pivot);      
     return 1;
   }
   return 0;
 }
 
-int count = 1;
 
 void sort_stacks(t_stack * const a, t_stack * const b)
 {
@@ -63,7 +86,7 @@ void sort_stacks(t_stack * const a, t_stack * const b)
   while (!empty(a))
   {
     print_parallel(a, b);
-    if (check_sorted(a) && peak(b) < peak(a))
+    if (check_sorted(a) && (empty(b) || peak(b) < peak(a)))
     {
       break;
     }
