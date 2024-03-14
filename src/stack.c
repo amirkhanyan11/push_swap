@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/13 23:17:51 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:18:59 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 
 
   sort_stacks(a, b);
-  print(a);
+  // print(a);
 
   destroy(&a);
   destroy(&b);

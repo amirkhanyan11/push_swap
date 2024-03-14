@@ -75,7 +75,7 @@ void free_mat(char **mat);
 // sorting functions
 int sorted(t_stack* stack);
 int check_sorted(t_stack * const stack);
-
+void print_parallel(t_stack *a, t_stack*b);
 
 
 

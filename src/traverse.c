@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/13 23:13:52 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:18:27 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,59 @@ void	print(t_stack *stack)
 {
 	traverse(_print, stack->m_head);
   printf("\n");
+}
+
+
+
+void print_parallel_helper(long long a, long long b)
+{
+  if (a == invalid_input && b == invalid_input)
+    printf ("_   _\n");
+  else if (a != invalid_input && b == invalid_input)
+    printf ("%lld   _\n", a);
+  else if(a == invalid_input && b != invalid_input)
+    printf ("_   %lld\n", b);
+  else
+    printf ("%lld   %lld\n", a, b);
+}
+
+void print_parallel(t_stack *a, t_stack*b)
+{
+  if (NULL == a || NULL == b)
+      return;
+
+  t_node *t_a = a->m_head;
+  t_node *t_b = b->m_head;
+  long long val_a, val_b;
+  int flag = 0;
+  
+  printf("------------------------\n");
+  do 
+  {
+    val_a = invalid_input;
+    val_b = invalid_input;
+
+    if (t_b == b->m_head && t_a != a->m_head)
+        flag = 1;
+
+    if (NULL != t_a)
+      val_a = t_a->m_val;
+
+    if (NULL != t_b && !flag)
+      val_b = t_b->m_val;
+
+    print_parallel_helper(val_a, val_b);
+    
+    if (NULL != t_a)
+      t_a = t_a->m_next;
+    if (NULL != t_b)
+      t_b = t_b->m_next;
+  }
+  while (t_a != a->m_head);
+
+  printf ("_   _\n");
+  printf ("a   b\n");
+  
 }
 
 void	clear(t_stack *stack)

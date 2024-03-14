@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/13 23:14:06 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:34:43 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,12 @@ void sort_stacks(t_stack * const a, t_stack * const b)
 
   while (!empty(a))
   {
-    if (check_sorted(a) && empty(b))
+    print_parallel(a, b);
+    if (check_sorted(a) && peak(b) < peak(a))
     {
       break;
     }
-    printf("count : %d\n", count++);
+    count++;
     tmp = pop(a);
     while (!empty(b) && peak(b) > tmp)
     {
@@ -77,9 +78,13 @@ void sort_stacks(t_stack * const a, t_stack * const b)
   
   while (!empty(b))
   {
-    printf("count : %d\n", count++);
+    print_parallel(a, b);
+    count++;
     push(pop(b), a);
   }
+
+  print_parallel(a, b);
+  printf("Steps permitted : %d\n", count);
   clear(b);
 }
 
