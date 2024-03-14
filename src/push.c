@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:15:40 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 18:36:35 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:40:15 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/push_swap.h"
@@ -17,7 +17,7 @@ void	push(int const val, t_stack *const obj)
 
 	new_node = node_init(val);
 	new_node->m_next = obj->m_head;
-	
+
   if (empty(obj))
   {
     obj->m_head = new_node;
