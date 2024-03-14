@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 16:26:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 18:11:42 by aamirkha         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
@@ -41,26 +30,27 @@ static t_node *smallest(t_stack * const stack)
 
 int count = 1;
 
-static t_node *closest(t_stack *stack, t_node *pivot)
+static int closest(t_stack *stack, t_node *pivot)
 {
   t_node *t_head = stack->m_head;
-  t_node *t_tail = stack->m_tail;
+  t_node *t_tail = stack->m_head->m_prev;
 
   while (t_head != pivot && t_tail != pivot)
   {
+    if (t_head == pivot)
+        return 1;
     t_head = t_head->m_next;
     t_tail = t_tail->m_prev;
   }
-  if (t_head == pivot)
-      return stack->m_head;
-  return stack->m_tail;
+  return 0;
 }
 
-
-static void organize_rotate(void(*f)(t_stack *const), t_stack * const stack, t_node * start, t_node const * const pivot)
+static void organize_rotate(void (*fptr)(t_stack * const), t_stack * const stack, t_node* end)
 {
-  while (start != pivot)
-    f(stack);
+  while (stack->m_head != end)
+  {
+    fptr(stack);
+  }
 }
 
 int check_sorted(t_stack * const stack)
@@ -69,10 +59,9 @@ int check_sorted(t_stack * const stack)
 
   if (traverse_unary_predicate(_sorted, pivot))
   {
-    if (closest(stack, pivot) == stack->m_head)
-      organize_rotate(rotate, stack, stack->m_head, pivot);      
-    else 
-      organize_rotate(rrotate, stack, stack->m_tail, pivot);      
+    void (*fptr) (t_stack * const) = (closest(stack, pivot)) ? rotate : rrotate;
+
+    organize_rotate(fptr, stack, pivot);
     return 1;
   }
   return 0;

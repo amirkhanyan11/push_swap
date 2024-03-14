@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 16:18:27 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:39:31 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,11 @@ void	print(t_stack *stack)
 void print_parallel_helper(long long a, long long b)
 {
   if (a == invalid_input && b == invalid_input)
-    printf ("_   _\n");
+    printf ("   \n");
   else if (a != invalid_input && b == invalid_input)
-    printf ("%lld   _\n", a);
+    printf ("%lld   \n", a);
   else if(a == invalid_input && b != invalid_input)
-    printf ("_   %lld\n", b);
+    printf ("   %lld\n", b);
   else
     printf ("%lld   %lld\n", a, b);
 }
