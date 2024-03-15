@@ -6,9 +6,10 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:15:40 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 20:40:15 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/15 23:39:20 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	push(int const val, t_stack *const obj)
