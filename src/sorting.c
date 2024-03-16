@@ -28,7 +28,7 @@ static t_node *smallest(t_stack * const stack)
   return (traverse_binary_predicate(_smallest, stack->m_head));
 }
 
-int count = 1;
+int count = 0;
 
 static int closest(t_stack *stack, t_node *pivot)
 {
@@ -47,10 +47,11 @@ static int closest(t_stack *stack, t_node *pivot)
 
 void organize_rotate(t_stack * const stack, t_node* end)
 {
-  void (*fptr) (t_stack * const) = (closest(stack, end)) ? rotate : rrotate;
+  void (*fptr) (t_stack * const, t_mode) = (closest(stack, end)) ? rotate : rrotate;
   while (stack->m_head != end)
   {
-    fptr(stack);
+    fptr(stack, single);
+    count++;
   }
 }
 
@@ -73,7 +74,7 @@ void sort_stacks(t_stack * const a, t_stack * const b)
 
   while (!empty(a))
   {
-    print_parallel(a, b);
+    // print_parallel(a, b);
     if (check_sorted(a) && (empty(b) || peak(b) < peak(a)))
     {
       break;
@@ -89,7 +90,7 @@ void sort_stacks(t_stack * const a, t_stack * const b)
   
   while (!empty(b))
   {
-    print_parallel(a, b);
+    // print_parallel(a, b);
     count++;
     push(pop(b), a);
   }
