@@ -6,18 +6,19 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:15:16 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 18:49:01 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/16 18:05:36 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*stack_init(void)
+t_stack	*stack_init(char const name)
 {
 	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
 	stack->m_head = NULL;
+  stack->m_name = name;
 	return (stack);
 }
 
@@ -52,12 +53,12 @@ static int	_ac_count(char **mat)
 	return (count);
 }
 
-t_stack	*a_init(int ac, char **av)
+t_stack	*a_init(int ac, char **av, char const name)
 {
 	char	**mat;
 	t_stack	*stack;
 
-	stack = stack_init();
+	stack = stack_init(name);
 	mat = NULL;
 	if (ac == 2)
 	{

@@ -6,6 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:15:40 by aamirkha          #+#    #+#             */
+/*   Updated: 2024/03/16 18:35:42 by aamirkha         ###   ########.fr       */
 /*   Updated: 2024/03/15 23:39:20 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -40,6 +41,9 @@ void	push_a_b(t_stack *const lhv, t_stack *const rhv)
 
 	val = pop(lhv);
 	push(val, rhv);
+
+
+  printf("p%c ", lhv->m_name);
 }
 
 

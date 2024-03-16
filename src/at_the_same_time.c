@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:55:31 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/12 21:25:49 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/16 18:33:45 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 void	ss(t_stack *const a, t_stack *const b)
 {
-	swap(a);
-	swap(b);
+	swap(a, dual);
+	swap(b, dual);
+  printf ("ss");
 }
 
 void	rr(t_stack *const a, t_stack *const b)
 {
-	rotate(a);
-	rotate(b);
+	rotate(a, dual);
+	rotate(b, dual);
+  printf ("rr");
 }
 
 void	rrr(t_stack *const a, t_stack *const b)
 {
-	rrotate(a);
-	rrotate(b);
+	rrotate(a, dual);
+	rrotate(b, dual);
+  printf ("rrr");
 }

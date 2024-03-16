@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 18:54:54 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/16 18:06:06 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 
-	a = a_init(ac, av);
+	a = a_init(ac, av, 'a');
   
- t_stack *b = stack_init();
+ t_stack *b = stack_init('b');
   if (NULL == a)
 	{
 		printf("invalid input aper\n");
