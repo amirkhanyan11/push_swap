@@ -95,8 +95,8 @@ void sort_stacks(t_stack * const a, t_stack * const b)
     push(pop(b), a);
   }
 
-  print_parallel(a, b);
-  printf("Steps permitted : %d\n", count);
+//  print_parallel(a, b);
+  printf("\nSteps permitted : %d\n", count);
   clear(b);
 }
 

@@ -6,32 +6,32 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:15:40 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/16 18:35:42 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:20:43 by aamirkha         ###   ########.fr       */
 /*   Updated: 2024/03/15 23:39:20 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push(int const val, t_stack *const obj)
+void	push(int const val, t_stack *const stack)
 {
 	t_node	*new_node;
 
 	new_node = node_init(val);
-	new_node->m_next = obj->m_head;
+	new_node->m_next = stack->m_head;
 
-  if (empty(obj))
+  if (empty(stack))
   {
-    obj->m_head = new_node;
-    obj->m_head->m_next = new_node;
-    obj->m_head->m_prev = new_node;
+    stack->m_head = new_node;
+    stack->m_head->m_next = new_node;
+    stack->m_head->m_prev = new_node;
     return;
   }	
 	
-  obj->m_head->m_prev->m_next = new_node;
-  new_node->m_prev = obj->m_head->m_prev;
-  obj->m_head->m_prev = new_node;
-	obj->m_head = new_node;
+  stack->m_head->m_prev->m_next = new_node;
+  new_node->m_prev = stack->m_head->m_prev;
+  stack->m_head->m_prev = new_node;
+	stack->m_head = new_node;
 }
 
 
