@@ -30,7 +30,7 @@ static t_node *smallest(t_stack * const stack)
 
 int count = 0;
 
-static int closest(t_stack *stack, t_node *pivot)
+void (*closest(t_stack *stack, t_node *pivot))(t_stack * const, t_mode)
 {
   t_node *t_head = stack->m_head;
   t_node *t_tail = stack->m_head->m_prev;
@@ -38,19 +38,18 @@ static int closest(t_stack *stack, t_node *pivot)
   while (t_head != pivot && t_tail != pivot)
   {
     if (t_head == pivot)
-        return 1;
+        return rotate;
     t_head = t_head->m_next;
     t_tail = t_tail->m_prev;
   }
-  return 0;
+  return rrotate;
 }
 
 void organize_rotate(t_stack * const stack, t_node* end)
 {
-  void (*fptr) (t_stack * const, t_mode) = (closest(stack, end)) ? rotate : rrotate;
   while (stack->m_head != end)
   {
-    fptr(stack, single);
+    closest(stack, end)(stack, single);
     count++;
   }
 }
@@ -80,23 +79,19 @@ void sort_stacks(t_stack * const a, t_stack * const b)
       break;
     }
     count++;
-    tmp = pop(a);
-    while (!empty(b) && peak(b) > tmp)
-    {
-      push_a_b(b, a);
-    }
-    push(tmp, b);
+    organize_rotate(a, smallest(a));
+    push_a_b(a, b);
   }
   
   while (!empty(b))
   {
     // print_parallel(a, b);
+    push_a_b(b, a);
     count++;
-    push(pop(b), a);
   }
 
 //  print_parallel(a, b);
-  printf("\nSteps permitted : %d\n", count);
+  // printf("\nSteps permitted : %d\n", count);
   clear(b);
 }
 

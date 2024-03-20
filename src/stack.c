@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/16 18:06:06 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:32:00 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	main(int ac, char **av)
 
   sort_stacks(a, b);
 
-  if (sorted(a))
-      printf("Success!!\n");
-  else 
-    printf("Not sorted!\n");
+  // if (sorted(a))
+  //     printf("Success!!\n");
+  // else 
+  //   printf("Not sorted!\n");
 
   destroy(&a);
   destroy(&b);

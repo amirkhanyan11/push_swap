@@ -2,7 +2,7 @@ import random
 
 # Get the desired range from the user
 lower_bound = -100
-upper_bound = 400 + 1  # Include upper bound
+upper_bound = 0 + 1  # Include upper bound
 
 # lower_bound = int(input("Enter the lower bound of the range: "))
 # upper_bound = int(input("Enter the upper bound of the range: ")) + 1  # Include upper bound

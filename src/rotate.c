@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/16 18:32:19 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:27:33 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void rotate(t_stack * const stack, t_mode mode)
 	}
   
   if (mode == single)
-    printf("r%c ", stack->m_name);
+    printf("r%c\n", stack->m_name);
 }
 
 void rrotate(t_stack * const stack, t_mode mode)
@@ -31,5 +31,5 @@ void rrotate(t_stack * const stack, t_mode mode)
 	}
   
   if (mode == single)
-    printf("rr%c ", stack->m_name);
+    printf("rr%c\n", stack->m_name);
 }
