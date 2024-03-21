@@ -5,7 +5,7 @@ SRCSPATH = ./src/
 LIBFTPATH = ./libft/
 INCPATH = ./includes/ ./libft/
 
-SRCS = $(wildcard $(SRCSPATH)*.c)
+SRCS = $(wildcard $(SRCSPATH)*.c) ./main/stack.c
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 LIBFT = $(LIBFTPATH)libft.a
 MAIN = ./main/main.c

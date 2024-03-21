@@ -9,6 +9,7 @@
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
+#include "get_next_line.h"
 #include <stdint.h>
 #include <stdio.h>
 
