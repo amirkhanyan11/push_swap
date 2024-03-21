@@ -47,9 +47,10 @@ void (*closest(t_stack *stack, t_node *pivot))(t_stack * const, t_mode)
 
 void organize_rotate(t_stack * const stack, t_node* end)
 {
+  void (*f)(t_stack * const, t_mode) = closest(stack, end);
   while (stack->m_head != end)
   {
-    closest(stack, end)(stack, single);
+    f(stack, single);
     count++;
   }
 }
