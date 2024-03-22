@@ -4,13 +4,13 @@
 
 void parce (t_stack *a, t_stack *b, char const * input)
 {
-  if (!ft_strncmp(input, "pa\n", ft_strlen(input)))
+  if (!ft_strncmp(input, "pa", ft_strlen(input) - 1))
     push_a_b(b, a);
-  else if (!ft_strncmp(input, "pb\n", ft_strlen(input)))
+  else if (!ft_strncmp(input, "pb", ft_strlen(input) - 1))
     push_a_b(a, b);
-  else if (!ft_strncmp(input, "ra\n", ft_strlen(input)))
+  else if (!ft_strncmp(input, "ra", ft_strlen(input) - 1))
     rotate(a, single);
-  else if (!ft_strncmp(input, "rra\n", ft_strlen(input)))
+  else if (!ft_strncmp(input, "rra", ft_strlen(input) - 1))
     rrotate(a, single);
 };
 

@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/20 20:00:50 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:44:03 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int traverse_unary_predicate(unary_predicate f, t_stack * const stack, t_node *s
 		if (f(start))
     {
       // organize_rotate(stack, start);
-      // swap(stack, single);
+      swap(stack, single); // ?
       return 0;// ???
     }
 		start = tmp;

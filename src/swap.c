@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:18:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/16 18:34:03 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:45:32 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void swap(t_stack * const stack, t_mode mode)
   stack->m_head->m_next->m_val = val;
 
   if (mode == single)
-    printf("s%c ", stack->m_name);
+    printf("s%c\n", stack->m_name);
 }
 
