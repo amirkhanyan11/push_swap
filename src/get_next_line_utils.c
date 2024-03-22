@@ -6,7 +6,7 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 17:02:14 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/21 19:28:37 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:08:59 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char	*ft_frankenstein(char *str, char const c, t_sh mode)
 	}
 	else if (mode == __strlen)
 	{
-
 		while (*str && *str != c)
 			str++;
 		return (str);
@@ -63,8 +62,8 @@ void	ft_append(char **const memory, char const *const buffer)
 	j = 0;
 	k = 0;
 	target = (char *)malloc((ft_frankenstein((char *)(*memory), 0, __strlen)
-				- (*memory)) + (ft_frankenstein((char *)buffer, 0, __strlen)
-				+ 1 - buffer));
+				- (*memory)) + (ft_frankenstein((char *)buffer, 0, __strlen) + 1
+				- buffer));
 	if (!target)
 		return ;
 	while ((*memory)[i] || buffer[j])

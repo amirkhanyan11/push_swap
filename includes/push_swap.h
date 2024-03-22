@@ -38,8 +38,8 @@ typedef enum e_input
 
 typedef enum e_mode
 {
-  single,
-  dual
+  shadow,
+  visible
 } t_mode;
 
 typedef void	(*fptr)(t_node *);
@@ -56,7 +56,7 @@ t_node *find(int const val, t_stack *stack);
 int peak(t_stack * const stack);
 void	push(int const val, t_stack * const stack);
 void traverse(fptr f, t_node *head);
-int traverse_unary_predicate(unary_predicate f, t_stack * const stack, t_node *start);
+int traverse_unary_predicate(unary_predicate f, t_stack * const stack, t_node *start, t_node * end);
 t_node  *traverse_binary_predicate(cmp f, t_node *head);
 void print(t_stack * stack); 
 void clear(t_stack * stack);

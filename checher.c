@@ -12,6 +12,10 @@ void parce (t_stack *a, t_stack *b, char const * input)
     rotate(a, single);
   else if (!ft_strncmp(input, "rra", ft_strlen(input) - 1))
     rrotate(a, single);
+  else if (!ft_strncmp(input, "sa", ft_strlen(input) - 1))
+    swap(a, single);
+  else if (!ft_strncmp(input, "sb", ft_strlen(input) - 1))
+    swap(b, single);
 };
 
 

@@ -6,11 +6,12 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/22 17:44:03 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/22 20:28:55 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 static void	_print(t_node *node)
 {
@@ -73,22 +74,24 @@ size_t distance(t_node * f, t_node * l)
   return distance;
 }
 
-int traverse_unary_predicate(unary_predicate f, t_stack * const stack, t_node *start)
+int traverse_unary_predicate(unary_predicate f, t_stack * const stack, t_node *start, t_node *end)
 {
-  t_node	*end;
 	t_node	*tmp;
 
-  if (NULL == start)
+  if (NULL == start || start->m_next == end)
       return 1;
-	end = start;
 	do
 	{
 		tmp = start->m_next;
 		if (f(start))
     {
-      // organize_rotate(stack, start);
-      swap(stack, single); // ?
-      return 0;// ???
+      if (start == stack->m_head && (start->m_val < start->m_next->m_next->m_val || (start->m_prev == start->m_next->m_next && start->m_next->m_val > start->m_prev->m_val))
+      && traverse_unary_predicate(f, stack, start->m_next->m_next, stack->m_head))
+      {
+        swap(stack, visible);
+        return sorted(stack);
+      }
+      return 0;
     }
 		start = tmp;
 	} while (start->m_next != end);

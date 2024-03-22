@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:15:16 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/16 18:05:36 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:18:43 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack	*stack_init(char const name)
 
 	stack = malloc(sizeof(t_stack));
 	stack->m_head = NULL;
-  stack->m_name = name;
+	stack->m_name = name;
 	return (stack);
 }
 
@@ -28,17 +28,16 @@ t_node	*node_init(int const val)
 
 	node = malloc(sizeof(t_node));
 	node->m_val = val;
-  node->m_next = NULL;
-  node->m_prev = NULL;
+	node->m_next = NULL;
+	node->m_prev = NULL;
 	return (node);
 }
 
-
-void destroy(t_stack **stack)
+void	destroy(t_stack **stack)
 {
-  clear(*stack);
-  free(*stack);
-  *stack = NULL;
+	clear(*stack);
+	free(*stack);
+	*stack = NULL;
 }
 
 static int	_ac_count(char **mat)
@@ -66,17 +65,15 @@ t_stack	*a_init(int ac, char **av, char const name)
 		if (alloc_nums(_ac_count(mat), mat, stack) == -1)
 		{
 			free_mat(mat);
-      destroy(&stack);
+			destroy(&stack);
 			return (NULL);
 		}
 	}
 	else if (ac < 2 || alloc_nums(ac - 1, av + 1, stack) == -1)
 	{
-    destroy(&stack);
+		destroy(&stack);
 		return (NULL);
 	}
 	free_mat(mat);
 	return (stack);
 }
-
-

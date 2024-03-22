@@ -13,30 +13,25 @@
 
 #include "../includes/push_swap.h"
 
-int pop(t_stack *const stack)
+int	pop(t_stack *const stack)
 {
-	t_node	*next;
-  long long val;
-
+	t_node		*next;
+	long long	val;
 
 	if (empty(stack))
 		return (-1);
-  
-  val = stack->m_head->m_val;
-
-  if (stack->m_head == stack->m_head->m_next)
-  {
-    clear(stack);
-  }
-  
-  else 
-  {
-    next = stack->m_head->m_next;
-    stack->m_head->m_prev->m_next = next;
-    next->m_prev = stack->m_head->m_prev;
-    free(stack->m_head);
-    stack->m_head = next;
-  }
-
-  return (val);
+	val = stack->m_head->m_val;
+	if (stack->m_head == stack->m_head->m_next)
+	{
+		clear(stack);
+	}
+	else
+	{
+		next = stack->m_head->m_next;
+		stack->m_head->m_prev->m_next = next;
+		next->m_prev = stack->m_head->m_prev;
+		free(stack->m_head);
+		stack->m_head = next;
+	}
+	return (val);
 }

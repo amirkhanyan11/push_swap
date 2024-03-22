@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:18:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/14 20:39:29 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:08:46 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ t_node	*find(int const val, t_stack *stack)
 	} while (f != l);
 	return (NULL);
 }
-
