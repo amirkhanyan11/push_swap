@@ -1,96 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 17:13:56 by aamirkha          #+#    #+#             */
+/*   Updated: 2024/03/23 17:32:28 by aamirkha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int _sorted(t_node *node)
+void (*closest(t_stack *stack, t_node *end))(t_stack *const, t_mode)
 {
-  return (node->m_val > node->m_next->m_val);
+	t_node	*t_head;
+	t_node	*t_tail;
+
+	t_head = stack->m_head;
+	t_tail = stack->m_head->m_prev;
+	while (t_head != end && t_tail != end)
+	{
+		t_head = t_head->m_next;
+		t_tail = t_tail->m_prev;
+	}
+	if (t_head == end)
+		return (rotate);
+	return (rrotate);
 }
 
-int sorted(t_stack* stack)
+void	organize_rotate(t_stack *const stack, t_node *end)
 {
-  if (NULL == stack->m_head)
-      return 1;
-  return (traverse_unary_predicate(_sorted, stack, stack->m_head, stack->m_head));
+	void	(*f)(t_stack *const, t_mode);
+
+	f = closest(stack, end);
+	while (stack->m_head != end)
+	{
+		f(stack, visible);
+	}
 }
 
-t_node *_smallest(t_node *f, t_node *l)
+int sorted(t_stack *const stack)
 {
-  if (f->m_val < l->m_val)
-      return f;
-  return l;
+	t_node	*start;
+
+	start = smallest(stack);
+	if (fullsorted(stack))
+	{
+		return (1);
+	}
+	if (traverse_unary_predicate(_sorted, stack, start, start))
+	{
+		organize_rotate(stack, start);
+		return (1);
+	}
+	return (0);
 }
 
-static t_node *smallest(t_stack * const stack)
+void	sort_stacks(t_stack *const a, t_stack *const b)
 {
-  if (empty(stack))
-      return NULL;
-
-  return (traverse_binary_predicate(_smallest, stack->m_head));
+	while (!empty(a) && !(sorted(a) && (empty(b) || peak(b) < peak(a))))
+	{
+		organize_rotate(a, smallest(a));
+		push_a_b(a, b);
+	}
+	while (!empty(b))
+	{
+		push_a_b(b, a);
+	}
+	clear(b);
 }
-
-void (*closest(t_stack *stack, t_node *pivot))(t_stack * const, t_mode)
-{
-  t_node *t_head = stack->m_head;
-  t_node *t_tail = stack->m_head->m_prev;
-
-  while (t_head != pivot && t_tail != pivot)
-  {
-    t_head = t_head->m_next;
-    t_tail = t_tail->m_prev;
-  }
-  if (t_head == pivot)
-      return rotate;
-  return rrotate;
-}
-
-void organize_rotate(t_stack * const stack, t_node* end)
-{
-  void (*f)(t_stack * const, t_mode) = closest(stack, end);
-  while (stack->m_head != end)
-  {
-    f(stack, visible);
-  }
-}
-
-int check_sorted(t_stack * const stack)
-{
-  t_node *pivot = smallest(stack);
-
-  if (sorted(stack))
-  {
-    return 1;
-  }
-
-  if (traverse_unary_predicate(_sorted, stack, pivot, pivot))
-  {
-    organize_rotate(stack, pivot);
-    return 1;
-  }
-  return 0;
-}
-
-void sort_stacks(t_stack * const a, t_stack * const b)
-{
-
-  while (!empty(a))
-  {
-    if (check_sorted(a) && (empty(b) || peak(b) < peak(a)))
-    {
-      break;
-    }
-    organize_rotate(a, smallest(a));
-    push_a_b(a, b);
-  }
-  
-  while (!empty(b))
-  {
-    push_a_b(b, a);
-  }
-
-  clear(b);
-}
-
-
-
-
-

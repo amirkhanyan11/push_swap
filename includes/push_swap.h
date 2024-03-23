@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 17:33:36 by aamirkha          #+#    #+#             */
+/*   Updated: 2024/03/23 17:33:37 by aamirkha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -70,8 +82,7 @@ void rotate(t_stack * const stack, t_mode mode);
 void rrotate(t_stack * const stack, t_mode mode);
 void destroy(t_stack **stack);
 
-
-// debil functions
+// unused functions
 void ss(t_stack * const a, t_stack *const b);
 void rr(t_stack * const a, t_stack *const b);
 void rrr(t_stack * const a, t_stack *const b);
@@ -82,12 +93,14 @@ void free_mat(char **mat);
 
 
 // sorting functions
-int sorted(t_stack* stack);
-int check_sorted(t_stack * const stack);
+int fullsorted(t_stack* stack);
+int sorted(t_stack * const stack);
 void print_parallel(t_stack *a, t_stack*b);
 void organize_rotate(t_stack * const stack, t_node* end);
 t_node *_smallest(t_node *f, t_node *l);
-
+int _sorted(t_node *node);
+t_node *_smallest(t_node *f, t_node *l);
+t_node *smallest(t_stack * const stack);
 
 
 
