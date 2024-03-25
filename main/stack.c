@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/22 20:36:30 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:46:48 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,19 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-
-	a = a_init(ac, av, 'a');
-	b = stack_init('b');
-	if (NULL == a)
-	{
-		__death_666___();
-	}
-	sort_stacks(a, b);
-	destroy(&a);
-	destroy(&b);
+  
+  if (ac > 1)
+  {
+    a = a_init(ac, av, 'a');
+    b = stack_init('b');
+    if (NULL == a)
+    {
+      __death_666___();
+    }
+    sort_stacks(a, b);
+    destroy(&a);
+    destroy(&b);
+  }
 }
 
 #endif // MAIN

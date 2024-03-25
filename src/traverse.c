@@ -6,7 +6,7 @@
 /*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/23 17:23:27 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:41:17 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,35 +25,35 @@ static void	_clear(t_node *const node)
 
 void	traverse(fptr f, t_node *head)
 {
-	t_node	*breakpoint;
+	t_node	*end;
 	t_node	*tmp;
   
   if (NULL == head)
       return;
-	breakpoint = head;
+	end = head;
 	do
 	{
 		tmp = head->m_next;
 		f(head);
 		head= tmp;
-	} while (head != breakpoint);
+	} while (head != end);
 }
 
 
 t_node* traverse_binary_predicate(cmp f, t_node *head)
 {
-  t_node	*breakpoint;
+  t_node	*end;
 	t_node	*pivot;
   
   if (NULL == head)
       return NULL;
-	breakpoint = head;
+	end = head;
   pivot = head;
 	do
 	{
 	  pivot = f(head, pivot);
     head = head->m_next;
-	} while (head != breakpoint);
+	} while (head != end);
 
   return pivot;
 }
@@ -157,7 +157,6 @@ void print_parallel(t_stack *a, t_stack*b)
 
   printf ("_   _\n");
   printf ("a   b\n");
-  
 }
 
 void	clear(t_stack *stack)

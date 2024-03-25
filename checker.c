@@ -45,7 +45,6 @@ void parce (t_stack *a, t_stack *b, char const * input)
   parce_swap(a, b, input);
 };
 
-
 void handle(t_stack *a, t_stack *b)
 {
   char * input = get_next_line(0);
