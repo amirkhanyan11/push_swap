@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:18:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/22 18:08:46 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:12:42 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,32 @@ t_node	*find(int const val, t_stack *stack)
 
 	if (empty(stack))
 		return (NULL);
-	l = stack->m_head;
-	f = l;
-	do
+	l = stack->m_head->m_prev;
+	f = stack->m_head;
+	while (f != l)
 	{
 		if (f->m_val == val)
-		{
 			return (f);
-		}
 		f = f->m_next;
-	} while (f != l);
+	}
+	if (l->m_val == val)
+		return (l);
 	return (NULL);
+}
+
+void	print(t_stack *stack)
+{
+	traverse(_print, stack->m_head);
+	printf("\n");
+}
+
+void	clear(t_stack *stack)
+{
+	traverse(_clear, stack->m_head);
+	stack->m_head = NULL;
+}
+
+int	empty(t_stack *stack)
+{
+	return (stack->m_head == NULL);
 }

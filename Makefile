@@ -5,15 +5,14 @@ SRCSPATH = ./src/
 LIBFTPATH = ./libft/
 INCPATH = ./includes/ ./libft/
 
-SRCS = $(wildcard $(SRCSPATH)*.c) ./main/stack.c
+SRCS = $(wildcard $(SRCSPATH)*.c) 
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 LIBFT = $(LIBFTPATH)libft.a
-MAIN = ./main/main.c
 
 
 CC = cc
 DEBUG = -fsanitize=address
-CFLAGS = $(foreach H,$(INCPATH),-I$(H)) #$(DEBUG)
+CFLAGS = -Wall -Wextra -Werror $(foreach H,$(INCPATH),-I$(H)) #$(DEBUG)
 
 all : $(NAME)
 

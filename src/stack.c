@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 17:46:48 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:22:33 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,22 @@ void	__death_666___(void)
 	exit(1);
 }
 
-#ifndef MAIN
-
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-  
-  if (ac > 1)
-  {
-    a = a_init(ac, av, 'a');
-    b = stack_init('b');
-    if (NULL == a)
-    {
-      __death_666___();
-    }
-    sort_stacks(a, b);
-    destroy(&a);
-    destroy(&b);
-  }
+
+	if (ac > 1)
+	{
+		a = a_init(ac, av, 'a');
+		b = stack_init('b');
+		if (NULL == a)
+		{
+			__death_666___();
+		}
+		sort_stacks(a, b);
+		destroy(&a);
+		destroy(&b);
+	}
 }
 
-#endif // MAIN

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamirkha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:13:56 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/23 17:32:28 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/25 18:03:55 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void (*closest(t_stack *stack, t_node *end))(t_stack *const, t_mode)
+void	(*closest(t_stack *stack, t_node *end))(t_stack *const a, t_mode b)
 {
 	t_node	*t_head;
 	t_node	*t_tail;
@@ -40,7 +40,7 @@ void	organize_rotate(t_stack *const stack, t_node *end)
 	}
 }
 
-int sorted(t_stack *const stack)
+int	sorted(t_stack *const stack)
 {
 	t_node	*start;
 
