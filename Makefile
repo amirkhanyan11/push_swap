@@ -1,5 +1,6 @@
 
 NAME = push_swap
+CHECKER = checker
 
 SRCSPATH = ./src/
 PRINTFPATH = ./ft_printf/
@@ -9,7 +10,6 @@ SRCS = $(wildcard $(SRCSPATH)*.c)
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 PRINTF = $(PRINTFPATH)libftprintf.a
 
-
 CC = cc
 DEBUG = -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror $(foreach H,$(INCPATH),-I$(H)) #$(DEBUG)
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror $(foreach H,$(INCPATH),-I$(H)) #$(DEBUG)
 all : $(NAME)
 
 $(NAME) : $(PRINTF) $(OBJS)
-	$(CC) $(CFLAGS) $(MAIN) $(OBJS) $(PRINTF) -o $@
+	$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o $@
 
 $(PRINTF) :
 	make -C $(PRINTFPATH) all
@@ -25,13 +25,18 @@ $(PRINTF) :
 $(SRCSPATH)%.o : $(SRCSPATH)%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+check : $(CHECKER)
+
+$(CHECKER) : $(PRINTF) $(OBJS)
+	$(CC) $(CFLAGS) -D __CHECK__ $(OBJS) $(PRINTF) -o $@
+
 clean :
 	make -C $(PRINTFPATH) clean
 	rm -f $(OBJS)
 
 fclean : clean
 	make -C $(PRINTFPATH) fclean
-	rm -f $(NAME)
+	rm -f $(NAME) $(CHECKER)
 
 re : fclean all
 

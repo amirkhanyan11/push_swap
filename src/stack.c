@@ -6,7 +6,7 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:55:08 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/26 16:03:19 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:25:55 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	__death_666___(void)
 	write(2, "Error\n", 6);
 	exit(1);
 }
+
+#ifndef __CHECK__
 
 int	main(int ac, char **av)
 {
@@ -39,3 +41,4 @@ int	main(int ac, char **av)
 	}
 }
 
+#endif // __CHECK__

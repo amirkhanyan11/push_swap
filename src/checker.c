@@ -6,11 +6,11 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:18:30 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/26 16:07:17 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:36:56 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "push_swap.h"
 #include <sys/fcntl.h>
 
 void	parce_rotate(t_stack *a, t_stack *b, char const *input)
@@ -62,17 +62,32 @@ void	handle(t_stack *a, t_stack *b)
 	}
 }
 
+#ifdef __CHECK__
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
 
+	if (ac == 1)
+		return 0;
+
 	a = a_init(ac, av, 'a');
 	b = stack_init('b');
+	if (NULL == a)
+	{
+		__death_666___();
+	}
 	handle(a, b);
+	destroy(&a);
+	destroy(&b);
+
 	if (fullsorted(a) == 1)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+
 	return (0);
 }
+
+#endif // __CHECK__

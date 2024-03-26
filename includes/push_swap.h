@@ -6,7 +6,7 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:08:10 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/26 16:05:45 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:24:09 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "get_next_line.h"
 #include <stdint.h>
 #include <stdio.h>
+// #define __CHECK__
 
 typedef struct s_node
 {
@@ -89,3 +90,6 @@ t_node				*_smallest(t_node *f, t_node *l);
 int					_sorted(t_node *node);
 t_node				*_smallest(t_node *f, t_node *l);
 t_node				*smallest(t_stack *const stack);
+
+// my favorite
+void	__death_666___(void);
