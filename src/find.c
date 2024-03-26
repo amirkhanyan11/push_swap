@@ -6,11 +6,11 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:18:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 19:12:42 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:07:17 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 t_node	*find(int const val, t_stack *stack)
 {
@@ -35,7 +35,7 @@ t_node	*find(int const val, t_stack *stack)
 void	print(t_stack *stack)
 {
 	traverse(_print, stack->m_head);
-	printf("\n");
+	ft_printf("\n");
 }
 
 void	clear(t_stack *stack)

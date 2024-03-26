@@ -6,11 +6,11 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:15:16 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 19:23:53 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:02:20 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 t_stack	*stack_init(char const name)
 {

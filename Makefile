@@ -2,12 +2,12 @@
 NAME = push_swap
 
 SRCSPATH = ./src/
-LIBFTPATH = ./libft/
-INCPATH = ./includes/ ./libft/
+PRINTFPATH = ./ft_printf/
+INCPATH = ./includes/ ./ft_printf/includes/
 
-SRCS = $(wildcard $(SRCSPATH)*.c) 
+SRCS = $(wildcard $(SRCSPATH)*.c)
 OBJS = $(patsubst %.c, %.o, $(SRCS))
-LIBFT = $(LIBFTPATH)libft.a
+PRINTF = $(PRINTFPATH)libftprintf.a
 
 
 CC = cc
@@ -16,21 +16,21 @@ CFLAGS = -Wall -Wextra -Werror $(foreach H,$(INCPATH),-I$(H)) #$(DEBUG)
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(MAIN) $(OBJS) $(LIBFT) -o $@
+$(NAME) : $(PRINTF) $(OBJS)
+	$(CC) $(CFLAGS) $(MAIN) $(OBJS) $(PRINTF) -o $@
 
-$(LIBFT) :
-	make -C $(LIBFTPATH) all
+$(PRINTF) :
+	make -C $(PRINTFPATH) all
 
 $(SRCSPATH)%.o : $(SRCSPATH)%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	make -C $(LIBFTPATH) clean
+	make -C $(PRINTFPATH) clean
 	rm -f $(OBJS)
 
 fclean : clean
-	make -C $(LIBFTPATH) fclean
+	make -C $(PRINTFPATH) fclean
 	rm -f $(NAME)
 
 re : fclean all

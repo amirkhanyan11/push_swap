@@ -6,11 +6,11 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:48:04 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/22 18:08:52 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:03:19 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include "push_swap.h"
 
 char	*get_next_line(int fd)
 {

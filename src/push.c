@@ -6,11 +6,11 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:15:40 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 19:23:53 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:07:17 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	push(int const val, t_stack *const stack)
 {
@@ -37,5 +37,5 @@ void	push_a_b(t_stack *const lhv, t_stack *const rhv)
 
 	val = pop(lhv);
 	push(val, rhv);
-	printf("p%c\n", rhv->m_name);
+	ft_printf("p%c\n", rhv->m_name);
 }

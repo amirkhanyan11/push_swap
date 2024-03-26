@@ -6,11 +6,11 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:13:56 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 18:03:55 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:03:19 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	(*closest(t_stack *stack, t_node *end))(t_stack *const a, t_mode b)
 {
@@ -59,7 +59,7 @@ int	sorted(t_stack *const stack)
 
 void	sort_stacks(t_stack *const a, t_stack *const b)
 {
-	while (!empty(a) && !(sorted(a) && (empty(b) || peak(b) < peak(a))))
+	while (!empty(a) && !(sorted(a) && (empty(b) || top(b) < top(a))))
 	{
 		organize_rotate(a, smallest(a));
 		push_a_b(a, b);

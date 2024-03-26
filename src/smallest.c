@@ -6,11 +6,11 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:13:45 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 19:23:53 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:03:19 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	_sorted(t_node *node)
 {

@@ -6,11 +6,12 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:08:10 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 19:22:32 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:05:45 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
+#include "ft_printf.h"
 #include "get_next_line.h"
 #include <stdint.h>
 #include <stdio.h>
@@ -50,7 +51,7 @@ t_stack				*stack_init(char const name);
 t_node				*node_init(int const val);
 t_stack				*a_init(int ac, char **av, char const name);
 t_node				*find(int const val, t_stack *stack);
-int					peak(t_stack *const stack);
+int					top(t_stack *const stack);
 void				push(int const val, t_stack *const stack);
 void				traverse(t_fptr f, t_node *head);
 int					traverse_unary_predicate(t_unary_predicate f,

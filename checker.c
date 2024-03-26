@@ -6,7 +6,7 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:18:30 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 19:20:49 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:07:17 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	main(int ac, char **av)
 	b = stack_init('b');
 	handle(a, b);
 	if (fullsorted(a) == 1)
-		printf("OK\n");
+		ft_printf("OK\n");
 	else
-		printf("KO\n");
+		ft_printf("KO\n");
 	return (0);
 }

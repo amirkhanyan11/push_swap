@@ -6,16 +6,16 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:16:18 by aamirkha          #+#    #+#             */
-/*   Updated: 2024/03/25 19:23:50 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:07:17 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 #include <stdio.h>
 
 void	_print(t_node *node)
 {
-	printf("%d  ", node->m_val);
+	ft_printf("%d  ", node->m_val);
 }
 
 void	_clear(t_node *const node)

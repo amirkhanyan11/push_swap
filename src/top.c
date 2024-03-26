@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   top.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 01:27:17 by kali              #+#    #+#             */
-/*   Updated: 2024/01/22 16:11:52 by aamirkha         ###   ########.fr       */
+/*   Created: 2024/03/22 18:10:41 by aamirkha          #+#    #+#             */
+/*   Updated: 2024/03/26 16:03:19 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-static	int	_is_lower(char c)
+int	top(t_stack *const stack)
 {
-	return ((c >= 'a' && c <= 'z'));
-}
-
-int	ft_toupper(int c)
-{
-	if (_is_lower(c))
-		c -= 32;
-	return (c);
+	if (empty(stack))
+	{
+		return (invalid_input);
+	}
+	return (stack->m_head->m_val);
 }
